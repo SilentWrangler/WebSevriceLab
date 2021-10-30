@@ -15,7 +15,7 @@ namespace WebSevriceLab.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-          
+            
             base.OnConfiguring(optionsBuilder);
         }
     }

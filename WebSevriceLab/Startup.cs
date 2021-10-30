@@ -28,7 +28,7 @@ namespace WebSevriceLab
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDBContext>(opt => { opt.UseSqlite("DefaultConnection"); });
+            services.AddDbContext<AppDBContext>(opt => { opt.UseSqlite("Data Source=.\\mydb.db;"); });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -57,6 +57,8 @@ namespace WebSevriceLab
             {
                 endpoints.MapControllers();
             });
+
+            app.UseStaticFiles();
         }
     }
 }

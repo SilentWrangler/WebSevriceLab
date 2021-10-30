@@ -22,4 +22,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.11" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\css\booklist.css" />
+    <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\js\bookloader.js" />
+    <None Include="wwwroot\js\httphelpers.js" />
+  </ItemGroup>
+
 </Project>
