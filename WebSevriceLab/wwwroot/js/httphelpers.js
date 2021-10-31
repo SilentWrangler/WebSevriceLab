@@ -17,6 +17,7 @@ export function httpPostAsync(theUrl, callback, data = null) {
             callback(xmlHttp.responseText);
     }
     xmlHttp.open("POST", theUrl, true); // true for asynchronous
+    xmlHttp.setRequestHeader("Content-Type", "application/json");
     xmlHttp.send(data);
 }
 
@@ -24,10 +25,11 @@ export function httpPutAsync(theUrl, callback, data = null) {
     var xmlHttp = new XMLHttpRequest();
 
     xmlHttp.onreadystatechange = function () {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 204)
             callback(xmlHttp.responseText);
     }
     xmlHttp.open("PUT", theUrl, true); // true for asynchronous
+    xmlHttp.setRequestHeader("Content-Type", "application/json");
     xmlHttp.send(data);
 }
 

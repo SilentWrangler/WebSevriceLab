@@ -1,2 +1,15 @@
 ﻿body {
 }
+
+
+.book_window {
+    display: none;
+    position: absolute;
+
+    border: double 6px;
+
+}
+
+    .book_window.open {
+        display: block;
+    }

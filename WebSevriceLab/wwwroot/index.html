@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/booklist.css" />
 </head>
 <body>
     <table id="books_table">
@@ -13,5 +15,92 @@
         </tr>
     </table>
     <script type="module" src="../js/bookloader.js"></script>
+
+
+    <nav class="book_window" id="book_details">
+        <input type="button" value="Закрыть" id="book_close" />
+        <form id="book_window_form">
+            <input type="hidden" id="book_id" value="0" name="id" />
+            <table>
+                <tr>
+                    <td>
+                        <strong>Название</strong>
+                    </td>
+                    <td>
+                        <input type="text" id="book_name" name="name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Автор</strong>
+                    </td>
+                    <td>
+                        <select id="book_author" name="authorId"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>
+                            Описание
+                        </strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea id="book_description" name="description"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="Удалить" id="book_delete" />
+                    </td>
+                    <td>
+                        <input type="button" value="Изменить" id="book_submit" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </nav>
+    <nav class="book_window" id="book_create">
+        <input type="button" value="Закрыть" id="cbook_close" />
+        <form id="cbook_window_form">
+            <input type="hidden" id="cbook_id" value="0" name="id" />
+            <table>
+                <tr>
+                    <td>
+                        <strong>Название</strong>
+                    </td>
+                    <td>
+                        <input type="text" id="cbook_name" name="name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Автор</strong>
+                    </td>
+                    <td>
+                        <select id="cbook_author" name="authorId"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>
+                            Описание
+                        </strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea id="cbook_description" name="description"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="Добавить" id="сbook_submit" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </nav>
 </body>
 </html>
