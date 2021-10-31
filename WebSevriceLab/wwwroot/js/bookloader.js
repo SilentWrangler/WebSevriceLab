@@ -1,4 +1,4 @@
-﻿import { httpDelAsync, httpGetAsync, httpPutAsync } from "./httphelpers.js"
+﻿import { httpDelAsync, httpGetAsync, httpPostAsync, httpPutAsync } from "./httphelpers.js"
 
 //Elements
 var booktable = document.getElementById("books_table")
@@ -15,6 +15,13 @@ var book_submit = document.getElementById("book_submit")
 
 var book_form = document.getElementById("book_window_form")
 //-------------------------------
+var open_create = document.getElementById("open_create")
+var book_create = document.getElementById("book_create")
+var cbook_author = document.getElementById("cbook_author")
+var cbook_close = document.getElementById("cbook_close")
+var cbook_submit = document.getElementById("сbook_submit")
+var create_form = document.getElementById("cbook_window_form")
+//---------
 var authors = {}
 
 var current_book_id=0
@@ -25,9 +32,13 @@ function load_authors(response) {
     list.forEach((el) => {
         authors[el.id] = el
         let option = document.createElement("option")
+        let option2 = document.createElement("option")
         option.innerText = el.name
         option.value = el.id
+        option2.innerText = el.name
+        option2.value = el.id
         book_author.add(option)
+        cbook_author.add(option2)
     })
     httpGetAsync("/api/Books", load_books)
 }
@@ -118,6 +129,11 @@ function on_book_delete(response) {
     httpGetAsync("/api/Books", load_books)
 }
 
+book_delete.addEventListener("click", (ev) => {
+    if (confirm("Точно удалить книгу?")) {
+        delete_book()
+    }
+})
 
 function load_book_details(response) {
     let book = JSON.parse(response)
@@ -137,4 +153,21 @@ function close_detail() {
 book_close.addEventListener("click", (ev) => {
     ev.preventDefault()
     close_detail()
+})
+
+open_create.addEventListener("click", (ev) => {
+    book_create.classList.add("open")
+})
+
+cbook_close.addEventListener("click", (ev) => {
+    book_create.classList.remove("open")
+})
+
+function on_book_create(r) {
+    httpGetAsync("/api/Books", load_books)
+}
+
+cbook_submit.addEventListener("click", (ev) => {
+    let data = new FormData(create_form)
+    httpPostAsync("/api/Books", on_book_create, stringifyFormdata(data))
 })
